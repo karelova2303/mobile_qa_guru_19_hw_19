@@ -1,4 +1,3 @@
-import pytest
 from allure_commons._allure import step
 from appium.webdriver.common.appiumby import AppiumBy
 from selene import browser, have, be
@@ -17,6 +16,7 @@ def test_search(mobile):
         results.should(have.size_greater_than(0))
         results.first.should(have.text('Appium'))
 
+
 @android
 def test_click_the_item(mobile):
     with step('Type search'):
@@ -25,4 +25,3 @@ def test_click_the_item(mobile):
 
     with step('Verify is clikcable of the element'):
         browser.element((AppiumBy.ID, 'org.wikipedia.alpha:id/page_list_item_title')).click()
-

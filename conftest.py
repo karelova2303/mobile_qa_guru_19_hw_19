@@ -10,7 +10,7 @@ from selene import browser
 import config
 
 
-@pytest.fixture(scope='function',params=['android', 'ios'])
+@pytest.fixture(scope='function', params=['android', 'ios'])
 def mobile(request):
     if request.param == 'android':
         options = UiAutomator2Options().load_capabilities({
@@ -30,8 +30,8 @@ def mobile(request):
                 # Set your access credentials
                 "userName": config.user_name,
                 "accessKey": config.access_key
-                }
             }
+        }
         )
 
     if request.param == 'ios':
@@ -52,8 +52,8 @@ def mobile(request):
                 # Set your access credentials
                 "userName": config.user_name,
                 "accessKey": config.access_key
-                }
             }
+        }
         )
 
     browser.config.driver = webdriver.Remote(
